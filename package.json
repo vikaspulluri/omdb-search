@@ -1,0 +1,14 @@
+{
+  "name": "imdb-search",
+  "version": "1.0.0",
+  "description": "Search movies through OMDB api",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vikas Pulluri",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^16.2.2"
+  }
+}

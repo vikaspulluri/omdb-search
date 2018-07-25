@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="./css/styles.css">
+</head>
+<body>
+	<main>
+		<article id="search-article">
+			<div class="title-container">
+				<h1 class="neon-text">IMDB</h1>
+			</div>
+			<div class="search-container ">
+				<div class="radio-btns">
+					<h4>Search by : </h4>
+					<input type="radio" name="search" id="btn-title" checked>
+					<label for="btn-title" data-param="t">Title</label>
+
+					<input type="radio" name="search" id="btn-id">
+					<label for="btn-id" data-param="i">Id</label>
+					
+					<input type="radio" name="search" id="btn-year-title">
+					<label for="btn-year-title" data-param="y">Title and year</label>
+				</div>
+				<div class="search-bar-container">
+					<input type="text" name="search-bar" id="search-bar" placeholder="Enter query. . .">
+					<input type="text" name="search-bar" id="year-bar" placeholder="Enter year. . .">
+					<button class="btn search-btn">Search</button>
+				</div>
+			</div>
+		</article>
+		<article id="results-article">
+			<div class="results-header">
+				<div class="back-btn">Back</div>
+				<div class="headline">
+					<h2>IMDB</h2>
+				</div>
+			</div>
+			<div class="results-container">
+				<div class="title">
+					<h1>Spider man</h1>
+				</div>
+				<div class="rated">
+					<p>(PG-13)</p>
+				</div>
+				<div class="characters-container">
+					<div class="column">
+						<span>May 28, 1982</span>
+						<span>May 28, 1982</span>
+					</div>
+					<div class="column">
+						<span>May 28, 1982</span>
+						<span>May 28, 1982</span>
+					</div>
+					<div class="column">
+						<span>May 28, 1982</span>
+						<span>May 28, 1982</span>
+					</div>
+					<div class="column">
+						<span>May 28, 1982</span>
+						<span>May 28, 1982</span>
+					</div>
+				</div>
+				<div class="main-container">
+					<div class="left-container">
+						<div class="img-holder">
+							<img src="./img/spiderman.jpg">
+						</div>
+					</div>
+					<div class="ratings-container">
+						<div class="column">
+							<p>7/10</p>
+							<p>imdb rating</p>
+						</div>
+						<div class="column">
+							<p>7/10</p>
+							<p>imdb rating</p>
+						</div>
+						<div class="column">
+							<p>7/10</p>
+							<p>imdb rating</p>
+						</div>
+					</div>
+					<div class="right-container">
+						<div class="content-wrapper">
+							<div class="tabs-container">
+								<ul>
+									<li class="active" target-id="overview">Overview</li>
+									<li target-id="cast">Cast and Crew</li>
+									<li target-id="imdb-data">IMDB data</li>
+									<li target-id="other">Other Info</li>
+								</ul>
+							</div>
+							<div class="content">
+								<div id="overview" class="active">
+									<p>To fight against the evil Iron Cross Army, led by the space emperor Professor Monster, a daredevil motorcyclist transforms into the famous Marvel Superhero, with a racecar and giant ..</p>
+								</div>
+								<div id="cast"></div>
+								<div id="imdb-data"></div>
+								<div id="other"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</main>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script type="module" src="./src/config.js"></script>
+<script type="module" src="./src/urlBuilder.js"></script>
+<script type="module" src="./src/xhr.js"></script>
+<script type="module" src="./src/index.js"></script>
+</html>
