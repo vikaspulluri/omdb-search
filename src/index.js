@@ -12,10 +12,10 @@ import UrlBuilder from './urlBuilder.js';
 		if(search_by_param_id === 'y'){
 			let query2 = $('#year-bar').val();
 			if(!query2){return handleErrors('validation');}
-			else{UrlBuilder.apiKey().year(query2).title(query1).build()}
+			else{new UrlBuilder().apiKey().year(query2).title(query1).build()}
 		}
-		if(query1 && search_by_param_id === 'i'){UrlBuilder.apiKey().id(query1).build()}
-		if(query1 && search_by_param_id === 't'){UrlBuilder.apiKey().title(query1).build()}
+		if(query1 && search_by_param_id === 'i'){new UrlBuilder().apiKey().id(query1).build()}
+		if(query1 && search_by_param_id === 't'){new UrlBuilder().apiKey().title(query1).build()}
 	});
 
 	//Handling radio btn change event

@@ -28,4 +28,4 @@ class UrlBuilder{
 	}
 }
 
-export default new UrlBuilder();
+export default UrlBuilder;
