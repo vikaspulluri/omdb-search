@@ -10,7 +10,7 @@
 	<main>
 		<article id="search-article">
 			<div class="title-container">
-				<h1 class="neon-text">IMDB</h1>
+				<h1 class="neon-text">OMDB</h1>
 			</div>
 			<div class="search-container ">
 				<div class="radio-btns">
@@ -35,67 +35,41 @@
 			<div class="results-header">
 				<div class="back-btn">Back</div>
 				<div class="headline">
-					<h2>IMDB</h2>
+					<h2>OMDB</h2>
 				</div>
 			</div>
 			<div class="results-container">
 				<div class="title">
-					<h1>Spider man</h1>
+					<h1></h1>
 				</div>
 				<div class="rated">
-					<p>(PG-13)</p>
+					<p></p>
 				</div>
 				<div class="characters-container">
-					<div class="column">
-						<span>May 28, 1982</span>
-						<span>May 28, 1982</span>
-					</div>
-					<div class="column">
-						<span>May 28, 1982</span>
-						<span>May 28, 1982</span>
-					</div>
-					<div class="column">
-						<span>May 28, 1982</span>
-						<span>May 28, 1982</span>
-					</div>
-					<div class="column">
-						<span>May 28, 1982</span>
-						<span>May 28, 1982</span>
-					</div>
+					<!-- attributes container will inject here -->
 				</div>
 				<div class="main-container">
 					<div class="left-container">
 						<div class="img-holder">
-							<img src="./img/spiderman.jpg">
+							<img src="./img/default.jpg">
 						</div>
 					</div>
 					<div class="ratings-container">
-						<div class="column">
-							<p>7/10</p>
-							<p>imdb rating</p>
-						</div>
-						<div class="column">
-							<p>7/10</p>
-							<p>imdb rating</p>
-						</div>
-						<div class="column">
-							<p>7/10</p>
-							<p>imdb rating</p>
-						</div>
+						<!-- ratings will inject here -->
 					</div>
 					<div class="right-container">
 						<div class="content-wrapper">
 							<div class="tabs-container">
 								<ul>
 									<li class="active" target-id="overview">Overview</li>
-									<li target-id="cast">Cast and Crew</li>
+									<li target-id="cast">Cast</li>
 									<li target-id="imdb-data">IMDB data</li>
 									<li target-id="other">Other Info</li>
 								</ul>
 							</div>
 							<div class="content">
 								<div id="overview" class="active">
-									<p>To fight against the evil Iron Cross Army, led by the space emperor Professor Monster, a daredevil motorcyclist transforms into the famous Marvel Superhero, with a racecar and giant ..</p>
+									<!-- content will inject here -->
 								</div>
 								<div id="cast"></div>
 								<div id="imdb-data"></div>
@@ -113,6 +87,7 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 <script type="module" src="./src/config.js"></script>
+<script type="module" src="./src/util.js"></script>
 <script type="module" src="./src/urlBuilder.js"></script>
 <script type="module" src="./src/xhr.js"></script>
 <script type="module" src="./src/index.js"></script>
