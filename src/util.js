@@ -1,10 +1,10 @@
 import { config } from './config.js';
 
 export function handleResponseData(data){
-	displayResultsContainer();
 	if((data.Response && data.Response === false) || data.Error){
-		return handleError(data.Error,'404');
+		return handleError('404',data.Error);
 	}
+	displayResultsContainer();
 	let basicInfo = {};
 	basicInfo.title = data.Title ? data.Title : config.unavailable_message;
 	basicInfo.rated = data.Rated ? data.Rated : config.unavailable_message;
@@ -103,8 +103,8 @@ export function injectDataIntoDOM(info,type){
 	}
 }
 
-export function handleError(errMsg,type){
-	console.log(errMsg);
+export function handleError(type,errMsg){
+	$('.error-container').text(errMsg || getDefaultErrorMsg(type));
 }
 
 export function displayResultsContainer(){
@@ -115,4 +115,14 @@ export function displayResultsContainer(){
 export function displaySearchContainer(){
 	$('#results-article').hide();
 	$('#search-article').show();	
+}
+
+function getDefaultErrorMsg(type){
+	switch(type){
+		case 'validation':
+			return config.validationErrMsg;
+			break;
+		default:
+			return config.generalErrMsg;
+	}
 }

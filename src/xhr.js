@@ -1,7 +1,6 @@
 // Implements functionality related to ajax calls
-// const $ = require('./jquery.min');
 import { config } from './config.js';
-import { handleResponseData } from './util.js';
+import { handleResponseData, handleError } from './util.js';
 
 export class XHR {
 	constructor(builder) {
@@ -12,23 +11,27 @@ export class XHR {
 		this.getRequest = $.ajax({
 			url: this.host_url,
 			type: 'GET',
-			beforeSend: function(){
-				$('.search-btn').html('').append(`<img src='../img/loader.gif'>`);
-			}
+			beforeSend: (function(){
+				this.showLoader();
+			}).bind(this)
 		});
 		this.getRequest.fail(function(getResult, getStatus, errorThrown){
-			console.log(getResult);
-		});
-		this.getRequest.always(function(){
-			$('.search-btn').html('Search');
+			handleError('fail',getResult);
+			this.hideLoader()
 		});
 		return this;
 	}
 	complete(){
 		this.getRequest.done((response)=>{
+			this.hideLoader();
 			handleResponseData(response);
 		});
 	}
-	
+	showLoader(){
+		return $('#loader-article').append($(`<img src='../img/loader.gif'>`)).show();
+	}
+	hideLoader(){
+		$('#loader-article').html('').hide();	
+	}
 }
 

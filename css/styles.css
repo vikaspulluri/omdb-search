@@ -60,7 +60,7 @@ main .search-container input{font-family: 'Abel', sans-serif;font-weight: 700;fo
 
 .results-container .rated p {display:  inline-block;margin-top:  .2em;}
 
-.characters-container {margin:  5px;padding:  5px;position:  relative;display:  flex;justify-content:  space-evenly;color: #000;text-transform: capitalize;}
+.characters-container {margin:  5px;padding:  5px;position:  relative;display:  flex;justify-content:  space-evenly;color: #fff;text-transform: capitalize;}
 
 .characters-container .column {display:  flex;flex-direction:  column;}
 .characters-container .column span{padding: 5px 0;}
@@ -80,12 +80,12 @@ main .search-container input{font-family: 'Abel', sans-serif;font-weight: 700;fo
 .content {margin: 0px;background:  #fff;padding:  2px;}
 .content > div{display: none;}
 .content > div.active{display: block;}
-.content p {margin:  0;padding:  0em;}
+.content p {margin:  0;padding:  0em;width: 87%;}
 
 .img-holder {position:  absolute;left: 4%;padding: 5px;background:  #fff;border: 2px solid #000;}
 
 .img-holder img {width: 100%;max-width: 220px;height:  auto;max-height: 280px;}
-.ratings-container {display:  flex;justify-content:  space-evenly;width:  70%;margin-left:  30%;}
+.ratings-container {color:#fff;display:  flex;justify-content:  space-evenly;width:  70%;margin-left:  30%;}
 
 .ratings-container .column {max-width:  10%;position:  relative;padding: 0 5em;}
 
@@ -93,6 +93,8 @@ main .search-container input{font-family: 'Abel', sans-serif;font-weight: 700;fo
 .content .item strong {padding: 0px 3em 0 1em;text-transform: capitalize;width: 10%}
 .back-btn{cursor: pointer;font-size: 1.2em;font-weight: 800;}
 .back-btn::before{content: "<";}
+#loader-article{display: none;position: absolute;top: 50%;left: 50%;transform: translateX(-50%);}
+.error-container {color: rgb(255,0,0);font-size: 1.2em;font-weight: 800;}
 /*Small screens*/
 @media screen and (max-width: 950px){
 	.img-holder img {

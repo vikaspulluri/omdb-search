@@ -1,5 +1,4 @@
-//entry file
-//const config = require('./config');
+/* Main Entry File */
 import UrlBuilder from './urlBuilder.js';
 import { displaySearchContainer, displayResultsContainer, handleError } from './util.js';
 (function handleEvents(){
@@ -7,10 +6,10 @@ import { displaySearchContainer, displayResultsContainer, handleError } from './
 	$('.search-btn').on('click',()=>{
 		let search_by_param_label = $('input[name="search"]:checked').next();
 		let search_by_param_id = $(search_by_param_label).data('param');
-		let query1 = $('#search-bar').val();
+		let query1 = $('#search-bar').val().trim();
 		if(!query1){return handleError('validation');}
 		if(search_by_param_id === 'y'){
-			let query2 = $('#year-bar').val();
+			let query2 = $('#year-bar').val().trim();
 			if(!query2){return handleError('validation');}
 			else{
 				new UrlBuilder()
@@ -54,6 +53,11 @@ import { displaySearchContainer, displayResultsContainer, handleError } from './
 		$('input[type=text]').val('');
 		$('.ratings-container').html('');
 		$('.characters-container').html('');
+		$('.content').children().each(function(i,item){
+			$(item).html('');
+		});
+		$('.img-holder img').attr('src','../img/default.jpg');
+		$('.error-container').text('');
 	});
 
 	$('.tabs-container li').on('click',function(){
