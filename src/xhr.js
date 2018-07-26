@@ -8,7 +8,7 @@
 
 //importing required modules
 import { config } from './config.js';
-import { handleResponseData, handleError } from './util.js';
+import { handleResponseData, handleError, showLoader, hideLoader } from './util.js';
 
 /*Exporting a class, so that object instance will be created when 
 called via new keyword. It will instaitiate from UrlBuilder class
@@ -23,26 +23,21 @@ export class XHR {
 			url: this.host_url,
 			type: 'GET',
 			beforeSend: (function(){
-				this.showLoader();
-			}).bind(this)
+				showLoader();
+			})
 		});
 		this.getRequest.fail(function(getResult, getStatus, errorThrown){
 			handleError('fail',getResult);
-			this.hideLoader()
+			hideLoader()
 		});
 		return this;
 	}
 	complete(){
 		this.getRequest.done((response)=>{
-			this.hideLoader();
+			hideLoader();
 			handleResponseData(response);
 		});
 	}
-	showLoader(){
-		return $('#loader-article').append($(`<img src='../img/loader.gif'>`)).show();
-	}
-	hideLoader(){
-		$('#loader-article').html('').hide();	
-	}
+
 }
 

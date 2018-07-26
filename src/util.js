@@ -165,3 +165,10 @@ function getDefaultErrorMsg(type){
 			return config.generalErrMsg;
 	}
 }
+
+export function showLoader(){
+	return $('#loader-article').append($(`<img src='../img/loader.gif'>`)).show();
+}
+export function hideLoader(){
+	$('#loader-article').html('').hide();	
+}
