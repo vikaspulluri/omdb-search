@@ -1,3 +1,9 @@
+/*  @author: Vikas Pulluri
+	@date: 24/07/2018
+	@file: config.js
+	@description: application configuration file. Will be used throught
+				the application for multiple purposes.
+*/
 export const config = {
 	host_url: "http://www.omdbapi.com",
 	api_key: "4ab75a06",

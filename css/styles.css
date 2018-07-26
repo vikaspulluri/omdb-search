@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Abel|Montserrat|Warnes');
 
 html,body{font-size: 16px;height: 100%;font-family: 'Montserrat', sans-serif;}
-html body{max-width: 1920px;margin: 0;padding: 0;display: flex;background: #444;}
+html body{max-width: 1920px;margin: 0 auto;padding: 0;display: flex;background: #444;}
 html body main{width: 100%;padding: 0px;margin:0px;}
 
 h1{font-size: 2em;font-weight: 700;margin: .5em 1em;}
@@ -41,7 +41,7 @@ main .search-container input{font-family: 'Abel', sans-serif;font-weight: 700;fo
 	background: -webkit-linear-gradient(bottom, #2c3e50, #bdc3c7);
 	background: -o-linear-gradient(bottom, #2c3e50, #bdc3c7);
 	background: linear-gradient(to top, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-	max-width: 1100px;
+	max-width: 1440px;
 	display: none;
 }
 .results-header {display:  flex;position: relative;padding: 5px 10px;background: #000;color: #fff;}
@@ -60,22 +60,22 @@ main .search-container input{font-family: 'Abel', sans-serif;font-weight: 700;fo
 
 .results-container .rated p {display:  inline-block;margin-top:  .2em;}
 
-.characters-container {margin:  5px;padding:  5px;position:  relative;display:  flex;justify-content:  space-evenly;color: #fff;text-transform: capitalize;}
+.characters-container {margin:  5px;padding:  5px;position:  relative;display:  flex;justify-content:  space-evenly;color: #fff;text-transform: capitalize;flex-wrap: wrap;}
 
-.characters-container .column {display:  flex;flex-direction:  column;}
-.characters-container .column span{padding: 5px 0;}
+.characters-container .column {display:  flex;flex-direction:  column;flex:1 0;padding: 0 .5em;}
+.characters-container .column span{padding: 5px;}
 .main-container {position:  relative;margin:  0;padding:  0;/* display:  flex; */}
 
 .left-container {display:  inline-block;width: 30%;}
 
 .right-container {width:  70%;display:  -webkit-box;}
 
-.content-wrapper {margin: 12px;position: absolute;width:70%;max-width:  70%;left:  30%;border: 2px solid #000;}
+.content-wrapper {margin: 12px;position: absolute;width:70%;max-width:  70%;left:  29%;border: 2px solid #000;}
 
 .tabs-container ul {padding:  0;margin:  0;list-style:  none;color:  #fff;}
 
 .tabs-container {background: #020146;}
-.tabs-container li {text-align:center;padding: 1em 0.5em;cursor: pointer;margin: 0;display: inline-block;width: calc(25% - 1.2em);}
+.tabs-container li {text-align:center;padding: 1em 0.5em;cursor: pointer;margin: 0;display: inline-table;width: calc(25% - 1.2em);}
 .tabs-container li.active{background:#00267b;font-weight: 800;}
 .content {margin: 0px;background:  #fff;padding:  2px;}
 .content > div{display: none;}
@@ -94,7 +94,9 @@ main .search-container input{font-family: 'Abel', sans-serif;font-weight: 700;fo
 .back-btn{cursor: pointer;font-size: 1.2em;font-weight: 800;}
 .back-btn::before{content: "<";}
 #loader-article{display: none;position: absolute;top: 50%;left: 50%;transform: translateX(-50%);}
-.error-container {color: rgb(255,0,0);font-size: 1.2em;font-weight: 800;}
+.error-container {color: rgb(255,0,0);font-size: 1.2em;font-weight: 800;display: inline;}
+.column span b {color: #000;}
+.column span b::after {content: ": ";}
 /*Small screens*/
 @media screen and (max-width: 950px){
 	.img-holder img {
@@ -197,6 +199,21 @@ main .search-container input{font-family: 'Abel', sans-serif;font-weight: 700;fo
 		padding: 1.5vw 2vw;
 		width: 8.5em;
 	}
+	.characters-container {
+	    display: flex;
+	    flex-direction:  column;
+	    justify-content: space-around;
+	}
+
+	.characters-container .column {
+	    display:  flex;
+	    flex-direction: row;
+	    justify-content:  space-around;
+	}
+	.characters-container .column span {
+	    width:  45%;
+	    max-width:  48%;
+	}
 }
 
 @media screen and (max-width: 420px){
@@ -255,5 +272,8 @@ main .search-container input{font-family: 'Abel', sans-serif;font-weight: 700;fo
 	}
 	.ratings-container .column{
 		padding: 0 1.5em;
+	}
+	.characters-container {
+	    font-size: .8em;
 	}
 }

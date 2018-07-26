@@ -1,5 +1,18 @@
+/*  @author: Vikas Pulluri
+	@date: 24/07/2018
+	@file: util.js
+	@description: Main module to handle all utility functions like response
+				handling and error handling
+*/
+
+//importing required modules
 import { config } from './config.js';
 
+/*This function gets called once the response is ready in XHR object.
+	It will split the data into multiple objects and hand over those
+	objects into injectDataIntoDOM() to inject them into DOM
+@param: data - Object --- actual response from XHR
+*/
 export function handleResponseData(data){
 	if((data.Response && data.Response === false) || data.Error){
 		return handleError('404',data.Error);
@@ -47,6 +60,11 @@ export function handleResponseData(data){
 	injectDataIntoDOM(otherInfo,'other');
 }
 
+/*Function to create the DOM elements
+@param: strongText - string --- text to be displayed in strong element
+@param: pText - string --- text to be displayed in p element
+
+*/
 export function makeTemplate(strongText,pText){
 	let div = $(`<div class='item'></div>`);
 	let strong = $(`<strong></strong>`);
@@ -57,14 +75,19 @@ export function makeTemplate(strongText,pText){
 	return $(div);
 }
 
+/* Function to inject response data into DOM
+@param: info - Object --- object contains data to be injected
+@param: type - String --- type of object data, so that data will be injected into respective divs
+*/
 export function injectDataIntoDOM(info,type){
+	//injecting basicInfo object
 	if(type === 'basic'){
 		let counter = 1;
 		let span = [];
 		$('.results-container .title h1').text(info.title);
 		$('.results-container .rated p').text(`(${info.rated})`);
 		for(let attrubute in info.attributes){
-			span.push($(`<span><b>${attrubute}</b>: ${info.attributes[attrubute]}</span>`));
+			span.push($(`<span><b>${attrubute}</b>${info.attributes[attrubute]}</span>`));
 			if(counter == 2){
 				let div = $(`<div class='column'></div>`);
 				$(div).append($(span)[0]);
@@ -82,9 +105,13 @@ export function injectDataIntoDOM(info,type){
 			$(div).append([p1,p2]);
 			$(div).appendTo($('.ratings-container'));
 		}
-	}else if(type === 'poster' && info.img !== config.unavailable_message){
+	}
+	//injecting poster image
+	else if(type === 'poster' && info.img !== config.unavailable_message){
 		$('.img-holder img').attr('src',info.img);
-	}else if(type === 'cast'){
+	}
+	//injecting cast details
+	else if(type === 'cast'){
 		for(let item in info){
 			let div = makeTemplate(item,info[item]);
 			if(item === 'plot'){
@@ -93,7 +120,9 @@ export function injectDataIntoDOM(info,type){
 				div.appendTo($('#cast'));
 			}
 		}
-	}else if(type === 'imdb' || type === 'other'){
+	}
+	//injecting imdb and other info into DOM
+	else if(type === 'imdb' || type === 'other'){
 		for(let item in info){
 			if(info[item] !== config.unavailable_message){
 				let div = makeTemplate(item,info[item]);
@@ -103,20 +132,30 @@ export function injectDataIntoDOM(info,type){
 	}
 }
 
+/*Function to handle all types of errors. It will display 
+either actual error that we get from api or default error message in config
+@param: type - String --- type of error message
+@param: errMsg - String --- Message to be displayed to user
+*/
 export function handleError(type,errMsg){
 	$('.error-container').text(errMsg || getDefaultErrorMsg(type));
 }
 
+//Function to show results
 export function displayResultsContainer(){
 	$('#search-article').hide();
 	$('#results-article').show();
 }
 
+//Function to show search bar
 export function displaySearchContainer(){
 	$('#results-article').hide();
 	$('#search-article').show();	
 }
 
+/*Function to return default error message from config
+@param: type - String --- type of error message
+*/
 function getDefaultErrorMsg(type){
 	switch(type){
 		case 'validation':
