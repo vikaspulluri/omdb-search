@@ -74,7 +74,7 @@ import { displaySearchContainer, displayResultsContainer, handleError } from './
 		$('.content').children().each(function(i,item){
 			$(item).html('');
 		});
-		$('.img-holder img').attr('src','../img/default.jpg');
+		($('.img-holder').children().length > 1) ? $('.img-holder img:last-child').remove() : $('.img-holder .default-img').hide();
 		$('.error-container').text('');
 	});
 

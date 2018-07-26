@@ -85,6 +85,7 @@ main .search-container input{font-family: 'Abel', sans-serif;font-weight: 700;fo
 .img-holder {position:  absolute;left: 4%;padding: 5px;background:  #fff;border: 2px solid #000;}
 
 .img-holder img {width: 100%;max-width: 220px;height:  auto;max-height: 280px;}
+.img-holder .default-img{display: none;}
 .ratings-container {color:#fff;display:  flex;justify-content:  space-evenly;width:  70%;margin-left:  30%;}
 
 .ratings-container .column {max-width:  10%;position:  relative;padding: 0 5em;}

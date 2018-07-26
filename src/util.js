@@ -107,8 +107,13 @@ export function injectDataIntoDOM(info,type){
 		}
 	}
 	//injecting poster image
-	else if(type === 'poster' && info.img !== config.unavailable_message){
-		$('.img-holder img').attr('src',info.img);
+	else if(type === 'poster'){
+		if(info.img !== config.unavailable_message){
+			let img = $(`<img src='${info.img}'>`)
+			$('.img-holder').append($(img));
+		}else{
+			$('.img-holder .default-img').show();
+		}
 	}
 	//injecting cast details
 	else if(type === 'cast'){
@@ -167,8 +172,8 @@ function getDefaultErrorMsg(type){
 }
 
 export function showLoader(){
-	return $('#loader-article').append($(`<img src='../img/loader.gif'>`)).show();
+	return $('#loader-article').show();
 }
 export function hideLoader(){
-	$('#loader-article').html('').hide();	
+	$('#loader-article').hide();	
 }
