@@ -7,6 +7,8 @@
 */
 
 //Importing required modules
+window.jQuery = require('jquery');
+var $ = jQuery;
 import { XHR }  from './xhr.js';
 import { config } from './config.js';
 // const XHR = require('./xhr');

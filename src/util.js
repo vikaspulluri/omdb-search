@@ -6,6 +6,8 @@
 */
 
 //importing required modules
+window.jQuery = require('jquery');
+var $ = jQuery;
 import { config } from './config.js';
 
 /*This function gets called once the response is ready in XHR object.

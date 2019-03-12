@@ -7,6 +7,8 @@
 */
 
 //importing required modules
+window.jQuery = require('jquery');
+var $ = jQuery;
 import { config } from './config.js';
 import { handleResponseData, handleError, showLoader, hideLoader } from './util.js';
 

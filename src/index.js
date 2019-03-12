@@ -7,6 +7,8 @@
 */
 
 //importing required modules for this file
+window.jQuery = require('jquery');
+var $ = jQuery;
 import UrlBuilder from './urlBuilder.js';
 import { displaySearchContainer, displayResultsContainer, handleError } from './util.js';
 
